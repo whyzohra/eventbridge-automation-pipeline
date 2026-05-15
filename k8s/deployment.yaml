@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eventbridge-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eventbridge-app
+  template:
+    metadata:
+      labels:
+        app: eventbridge-app
+    spec:
+      containers:
+      - name: app
+        image: eventbridge-app
+        ports:
+        - containerPort: 8000
